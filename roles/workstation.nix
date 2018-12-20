@@ -39,8 +39,8 @@
 
   services.syncthing = {
     #enable = true;
-    user = "jakob";
-    dataDir = "/home/jakob";
+    user = "aabs";
+    dataDir = "/home/aabs";
   };
 
   services.xserver = {

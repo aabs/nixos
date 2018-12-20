@@ -8,6 +8,7 @@
   ];
 
   networking.hostName = "magnesium";
+	networking.networkmanager.enable = true;
 
   boot = {
     boot.loader.systemd-boot.enable = true;

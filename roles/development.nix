@@ -3,7 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     vscode
-    atom
     neovim
     vim
     emacs
