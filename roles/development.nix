@@ -7,10 +7,10 @@
     vim
     emacs
     git
-    gitAndTools.gitExtras
+#gitAndTools.gitExtras
     gitAndTools.hub
-    idea-community
-    pycharm-community
+    jetbrains.idea-community
+    jetbrains.pycharm-community
     pandoc
 
   ];
@@ -19,11 +19,11 @@
     GTK2_RC_FILES = "${pkgs.gnome_themes_standard}/share/themes/Adwaita/gtk-2.0/gtkrc";
   };
 
-  virtualisation.docker = {
-    enable = true;
-    extraOptions = "--exec-opt native.cgroupdriver=cgroupfs";
-    socketActivation = false;
-  };
+# virtualisation.docker = {
+# enable = true;
+# extraOptions = "--exec-opt native.cgroupdriver=cgroupfs";
+# socketActivation = false;
+# };
   #virtualisation.rkt.enable = true;
   #virtualisation.libvirtd.enable = true;
 
@@ -39,7 +39,7 @@
     desktopManager.gnome3.enable = true;
     #desktopManager.budgie.enable = true;
     desktopManager.xterm.enable = false;
-    synaptics.enable = true;
+#synaptics.enable = true;
   };
 
   services.couchdb = {

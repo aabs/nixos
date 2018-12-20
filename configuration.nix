@@ -12,17 +12,6 @@
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-	boot.initrd.luks.devices = [
-		{
-			name = "root";
-			device = "/dev/sda2";
-			preLVM = true;
-		}
-	];
-  networking.hostName = "magnesium"; # Define your hostname.
-	networking.networkmanager.enable = true;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -83,30 +72,30 @@
   # hardware.pulseaudio.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
+  # services.xserver.enable = true;
+  # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
 
   # Enable the KDE Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.desktopManager.plasma5.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   # users.extraUsers.guest = {
   #   isNormalUser = true;
   #   uid = 1000;
   # };
-	users.extraUsers.aabs = {
-		createHome = true;
-		extraGroups = ["wheel" "networkmanager"];
-		group = "users";
-		home = "/home/aabs";
-		isNormalUser = true;
-		uid = 1000;
-	};
+	# users.extraUsers.aabs = {
+		# createHome = true;
+		# extraGroups = ["wheel" "networkmanager"];
+		# group = "users";
+		# home = "/home/aabs";
+		# isNormalUser = true;
+		# uid = 1000;
+	# };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

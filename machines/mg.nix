@@ -11,11 +11,8 @@
 	networking.networkmanager.enable = true;
 
   boot = {
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-    initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "sd_mod" "rtsx_pci_sdmmc" ];
-    kernelModules = [ "kvm-intel" "tun" "virtio" ];
-  
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
     initrd.luks.devices = [
       {
         name = "root";
@@ -23,6 +20,8 @@
         preLVM = true;
       }
     ];
+    initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "sd_mod" "rtsx_pci_sdmmc" ];
+    kernelModules = [ "kvm-intel" "tun" "virtio" ];
   };
 
   fileSystems."/mnt/d" = { 

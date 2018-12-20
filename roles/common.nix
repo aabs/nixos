@@ -7,7 +7,6 @@ in
   time.timeZone = "Australia/Melbourne";
 
   environment.systemPackages = with pkgs; [
-    (import ../pkgs/dotfiles.nix)
     usbutils pciutils nfs-utils psmisc file gptfdisk
     git gitAndTools.git-crypt gitAndTools.hub
     python ruby bundler nodejs gcc gnumake
@@ -23,7 +22,7 @@ in
   programs.fish.enable = true;
 
   nix.gc.automatic = true;
-  nix.useChroot = true;
+  nix.useSandbox = true;
 
   hardware.enableAllFirmware = true;
 
@@ -48,8 +47,8 @@ in
   users = {
     mutableUsers = false;
 
-    users.extraUsers.aabs = {
-      hashedPassword = secrets.hashedPassword;
+    extraUsers.aabs = {
+      hashedPassword = secrets.name.hashedPassword;
       isNormalUser = true;
       home = "/home/aabs";
       shell = "${pkgs.fish}/bin/fish";
@@ -57,7 +56,7 @@ in
       uid = 1000;
       extraGroups = [ "wheel" "disk" "cdrom" "docker" "audio" ];
       openssh.authorizedKeys.keys = [
-        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQgnL+NTsbMCv2N+QMRYf612dD/Z0CE7gBhCYYT08s+ERvRqdCcw8GKSu4L/Sr6qbhMZHarbasCRz+Mcq7I57/R+cdjwSKV85ytmMoHQwmbDDKsCWttsmM831SJw/swZ+v1yxIpQHxY8FTdwnJn9frsXV0c6iJReAJ8ac2ENmm1wDLnp+Iyc+8s07F43P8QtaTAoDz/hFCJnmT54ueqW0YycSeOgKX4ybBYGRWczQziGJHLzxi7OjRg+EzSY+iCKFPKEZoFC9u5hf1FwzpphuyE4SXSa8ZBAWwBpJpi6ftC/6OleV6rSBQbsFHJNl8k3brZTD5LyJo0DnlmqOINGxB aabs@magnesium"
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNJNRPE32UQV+ZBU0EdaHDBJUacXUwsJnBpKsFvY4EpVvr/1yWTlGkGZHuaDK6lSPQKiYc+wWYJ9rZuh34l5NjJycpIHyEHYhz5xh6VEraKbHH3eUTbuIVRDrijnt8TGML2VEKYq8mbwFBLsO6tK/pCjX5A1oqsIX+/hdHSVmJ/fCFzigMLY3tzR7mIQcznA2B7SZ0GCO2XdSLmLMdOLaLZvFVozX4LlZCpsLFE3M7MXD+3W97oitgt1YXHeCNBapO44kbWumSE5cR5ErViDmYgbC+iyq73IQgMKciT+R0T1bU0wa9EjD0nf2L+R+ss0Twf6UyW80ZjpStUjB1ghiJ aabs@magnesium"
       ];
     };
   };
