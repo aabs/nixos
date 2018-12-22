@@ -7,13 +7,36 @@ in
   time.timeZone = "Australia/Melbourne";
 
   environment.systemPackages = with pkgs; [
-    usbutils pciutils nfs-utils psmisc file gptfdisk
-    git gitAndTools.git-crypt gitAndTools.hub
-    python ruby bundler nodejs gcc gnumake
-    curl wget bind dhcp unzip
-    htop tmux picocom stow duplicity
-    neovim
-  ];
+    nix-prefetch-scripts 
+    networkmanagerapplet 
+    ntfs3g
+    usbutils
+      pciutils
+      nfs-utils
+      psmisc
+      file
+      gptfdisk
+      git
+      gitAndTools.git-crypt
+      gitAndTools.hub
+      python
+      ruby
+      bundler
+      nodejs
+      gcc
+      gnumake
+      curl
+      wget
+      bind
+      dhcp
+      unzip
+      htop
+      tmux
+      picocom
+      stow
+      duplicity
+      neovim
+      ];
 
   environment.variables = {
     EDITOR = "${pkgs.neovim}/bin/nvim";
@@ -43,6 +66,17 @@ in
   };
 
   services.ntp.enable = true;
+
+  services.xserver = {
+    enable = true;
+    displayManager.lightdm.enable = true;
+    desktopManager.plasma5.enable = true;
+    desktopManager.gnome3.enable = false;
+    #desktopManager.budgie.enable = true;
+    desktopManager.xterm.enable = false;
+    synaptics.enable = true;
+    libinput.enable = false;
+  };
 
   users = {
     mutableUsers = false;

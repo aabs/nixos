@@ -2,16 +2,30 @@
 
 {
   environment.systemPackages = with pkgs; [
+    vim 
+    vimPlugins.spacevim 
+    exfat 
+    udiskie
+    dropbox-cli
+    fish
+    powerline-go
+    ag
+    fira
+    lastpass-cli
     vscode
     neovim
     vim
+    dialog
     emacs
     git
-#gitAndTools.gitExtras
     gitAndTools.hub
     jetbrains.idea-community
     jetbrains.pycharm-community
     pandoc
+    w3m
+    go
+    acpi
+
 
   ];
 
@@ -31,15 +45,6 @@
     #enable = true;
     user = "aabs";
     dataDir = "/home/aabs";
-  };
-
-  services.xserver = {
-    enable = true;
-    displayManager.lightdm.enable = true;
-    desktopManager.gnome3.enable = true;
-    #desktopManager.budgie.enable = true;
-    desktopManager.xterm.enable = false;
-#synaptics.enable = true;
   };
 
   services.couchdb = {
