@@ -32,6 +32,6 @@
     lastpass-cli
   ];
 
-  system.stateVersion = "18.09"; # Did you read the comment?
+  system.stateVersion = "19.03"; # Did you read the comment?
 
 }

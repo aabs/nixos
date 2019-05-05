@@ -2,8 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
+    neovim
     vim 
     vimPlugins.spacevim 
+    vscode
     exfat 
     udiskie
     dropbox-cli
@@ -12,32 +14,24 @@
     ag
     fira
     lastpass-cli
-    vscode
-    neovim
-    vim
     dialog
-    emacs
     git
     gitAndTools.hub
-    jetbrains.idea-community
-    jetbrains.pycharm-community
     pandoc
     w3m
-    go
     acpi
-
-
+    nox
   ];
 
   environment.variables = {
     GTK2_RC_FILES = "${pkgs.gnome_themes_standard}/share/themes/Adwaita/gtk-2.0/gtkrc";
   };
 
-# virtualisation.docker = {
-# enable = true;
-# extraOptions = "--exec-opt native.cgroupdriver=cgroupfs";
-# socketActivation = false;
-# };
+ virtualisation.docker = {
+ enable = true;
+ extraOptions = "--exec-opt native.cgroupdriver=cgroupfs";
+ socketActivation = false;
+ };
   #virtualisation.rkt.enable = true;
   #virtualisation.libvirtd.enable = true;
 
